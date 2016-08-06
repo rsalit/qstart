@@ -28,10 +28,15 @@ gulp.task('clean', function (cb) {
 
  */
 
-gulp.task("resources", ["server", "app", "assets"], function () {
+// gulp.task("resources", ["server", "app", "assets"], function () {
 
-    console.log("Building resources...");
+//     console.log("Building resources...");
 
+// });
+
+gulp.task("resources", ["server"], function() {
+    return gulp.src(["src/**/*", "!**/*.ts", "!src/server", "!src/server/**"])
+    .pipe(gulp.dest("build"));
 });
 
 /* copy the app core files to the build folder */
